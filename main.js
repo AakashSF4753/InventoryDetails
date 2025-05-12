@@ -244,12 +244,12 @@ tree.actionBegin = (args) => {
     }
     if (args.requestType === 'save' && args.data) {
         const currentStock = args.data.CurrentStock;
-        if (currentStock === 0) {
-            args.data.Status = 'Out of Stock';
-        } else if (currentStock <= 15) {
+        if (currentStock > 15) {
+            args.data.Status = 'Available';
+        } else if (currentStock > 0 && currentStock <= 15) {
             args.data.Status = 'Low Stock';
         } else {
-            args.data.Status = 'Available';
+            args.data.Status = 'Out of Stock';
         }
     }
 };
