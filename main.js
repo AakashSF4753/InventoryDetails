@@ -213,7 +213,7 @@ let tree = new ej.treegrid.TreeGrid(
         height: 500,
         allowSorting: true,
         allowPaging: true,
-        pageSettings: { pageSize: 6, pageCount: 1, pageSizes: true },
+        pageSettings: { pageSize: 6, pageCount: 2, pageSizes: true },
         allowFiltering: true,
         filterSettings: { type: 'Menu' },
         editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Row' },
