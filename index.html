@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <link href="https://cdn.syncfusion.com/ej2/29.1.33/fluent2-highcontrast.css" rel="stylesheet">
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <style>
+    /* #TreeGrid { */
+      .tailwind .detail-container,
+      .tailwind3 .detail-container,
+      .bootstrap .detail-container,
+      .bootstrap4 .detail-container,
+      .bootstrap5 .detail-container,
+      .fluent .detail-container,
+      .fluent2 .detail-container,
+      .fluent2-highcontrast .detail-container,
+      .highcontrast .detail-container,
+      .material .detail-container,
+      .material3 .detail-container,
+      .fabric .detail-container {
+        background-color: #f2f8fd;
+        display: flex;
+        align-items: center;
+        padding: 18px 24px;
+        border-radius: 8px;
+        gap: 24px;
+      }
+
+      .tailwind-dark .detail-container,
+      .tailwind3-dark .detail-container,
+      .bootstrap-dark .detail-container,
+      .bootstrap5-dark .detail-container,
+      .fluent-dark .detail-container,
+      .fluent2-dark .detail-container,
+      .material-dark .detail-container,
+      .material3-dark .detail-container,
+      .fabric-dark .detail-container {
+        display: flex;
+        align-items: center;
+        padding: 18px 24px;
+        border-radius: 8px;
+        gap: 24px;
+      }
+
+      .left-block {
+        flex: 0 0 25%;
+        display: flex;
+        gap: 18px;
+        align-items: center;
+      }
+
+      .left-block img {
+        width: 100px;
+        height: 100px;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px #00000026;
+      }
+
+      .tailwind .left-info-title,
+      .tailwind3 .left-info-title,
+      .bootstrap .left-info-title,
+      .bootstrap4 .left-info-title,
+      .bootstrap5 .left-info-title,
+      .fluent .left-info-title,
+      .fluent2 .left-info-title,
+      .fluent2-highcontrast .left-info-title,
+      .highcontrast .left-info-title,
+      .material .left-info-title,
+      .material3 .left-info-title,
+      .fabric .left-info-title {
+        color: #000000;
+        font-weight: 600;
+      }
+
+      .tailwind .left-info-description,
+      .tailwind3 .left-info-description,
+      .bootstrap .left-info-description,
+      .bootstrap4 .left-info-description,
+      .bootstrap5 .left-info-description,
+      .fluent .left-info-description,
+      .fluent2 .left-info-description,
+      .fluent2-highcontrast .left-info-description,
+      .highcontrast .left-info-description,
+      .material .left-info-description,
+      .material3 .left-info-description,
+      .fabric .left-info-description {
+        color: #4d4d4d;
+        margin-top: 8px;
+      }
+
+      .tailwind-dark .left-info-title,
+      .tailwind3-dark .left-info-title,
+      .bootstrap-dark .left-info-title,
+      .bootstrap5-dark .left-info-title,
+      .fluent-dark .left-info-title,
+      .fluent2-dark .left-info-title,
+      .material-dark .left-info-title,
+      .material3-dark .left-info-title,
+      .fabric-dark .left-info-title {
+        color: #f3f4f6;
+        font-weight: 600;
+      }
+
+      .tailwind-dark .left-info-description,
+      .tailwind3-dark .left-info-description,
+      .bootstrap-dark .left-info-description,
+      .bootstrap5-dark .left-info-description,
+      .fluent-dark .left-info-description,
+      .fluent2-dark .left-info-description,
+      .material-dark .left-info-description,
+      .material3-dark .left-info-description,
+      .fabric-dark .left-info-description {
+        color: #d1d5db;
+        margin-top: 8px;
+      }
+
+      .info-grid {
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 16px;
+      }
+
+      .tailwind .info-card,
+      .tailwind3 .info-card,
+      .bootstrap .info-card,
+      .bootstrap4 .info-card,
+      .bootstrap5 .info-card,
+      .fluent .info-card,
+      .fluent2 .info-card,
+      .fluent2-highcontrast .info-card,
+      .highcontrast .info-card,
+      .material .info-card,
+      .material3 .info-card,
+      .fabric .info-card {
+        background-color: #ffffff;
+        padding: 12px;
+        border-radius: 6px;
+      }
+
+      .tailwind .info-card:hover,
+      .tailwind3 .info-card:hover,
+      .bootstrap .info-card:hover,
+      .bootstrap4 .info-card:hover,
+      .bootstrap5 .info-card:hover,
+      .fluent .info-card:hover,
+      .fluent2 .info-card:hover,
+      .fluent2-highcontrast .info-card:hover,
+      .highcontrast .info-card:hover,
+      .material .info-card:hover,
+      .material3 .info-card:hover,
+      .fabric .info-card:hover {
+        border: 1px solid #00000033;
+      }
+
+      .tailwind-dark .info-card,
+      .tailwind3-dark .info-card,
+      .bootstrap-dark .info-card,
+      .bootstrap5-dark .info-card,
+      .fluent-dark .info-card,
+      .fluent2-dark .info-card,
+      .material-dark .info-card,
+      .material3-dark .info-card,
+      .fabric-dark .info-card {
+        background-color: #2c3748;
+        padding: 12px;
+        border-radius: 6px;
+      }
+
+      .tailwind-dark .info-card:hover,
+      .tailwind3-dark .info-card:hover,
+      .bootstrap-dark .info-card:hover,
+      .bootstrap5-dark .info-card:hover,
+      .fluent-dark .info-card:hover,
+      .fluent2-dark .info-card:hover,
+      .material-dark .info-card:hover,
+      .material3-dark .info-card:hover,
+      .fabric-dark .info-card:hover {
+        border: 1px solid #ffffff33;
+      }
+
+      .label {
+        color: #7d8595;
+      }
+
+      .tailwind .value-dark,
+      .tailwind3 .value-dark,
+      .bootstrap .value-dark,
+      .bootstrap4 .value-dark,
+      .bootstrap5 .value-dark,
+      .fluent .value-dark,
+      .fluent2 .value-dark,
+      .fluent2-highcontrast .value-dark,
+      .highcontrast .value-dark,
+      .material .value-dark,
+      .material3 .value-dark,
+      .fabric .value-dark {
+        font-weight: 700;
+        color: #1f2937;
+      }
+
+      .tailwind-dark .value-dark ,
+      .tailwind3-dark .value-dark ,
+      .bootstrap-dark .value-dark ,
+      .bootstrap5-dark .value-dark ,
+      .fluent-dark .value-dark ,
+      .fluent2-dark .value-dark ,
+      .material-dark .value-dark ,
+      .material3-dark .value-dark ,
+      .fabric-dark .value-dark {
+        font-weight: 700;
+        color: #7599cc;
+      }
+
+      .value-green {
+        font-weight: 700;
+        color: #10b981;
+      }
+
+      .value-status {
+        font-weight: 600;
+      }
+
+      .tailwind .value-muted,
+      .tailwind3 .value-muted,
+      .bootstrap .value-muted,
+      .bootstrap4 .value-muted,
+      .bootstrap5 .value-muted,
+      .fluent .value-muted,
+      .fluent2 .value-muted,
+      .fluent2-highcontrast .value-muted,
+      .highcontrast .value-muted,
+      .material .value-muted,
+      .material3 .value-muted,
+      .fabric .value-muted {
+        font-weight: 500;
+        color: #374151;
+      }
+
+      .tailwind-dark .value-muted ,
+      .tailwind3-dark .value-muted ,
+      .bootstrap-dark .value-muted ,
+      .bootstrap5-dark .value-muted ,
+      .fluent-dark .value-muted ,
+      .fluent2-dark .value-muted ,
+      .material-dark .value-muted ,
+      .material3-dark .value-muted ,
+      .fabric-dark .value-muted {
+        font-weight: 500;
+        color: #98b1d4;
+      }
+    /* } */
+  </style>
+</head>
+
+<body class="tailwind tailwind3 bootstrap bootstrap4 bootstrap5 fluent fluent2 material material3 fabric">
+<!-- <body class="tailwind-dark tailwind3-dark bootstrap-dark bootstrap5-dark fluent-dark fluent2-dark material-dark material3-dark fabric-dark"> -->
+  <div class="control-section">
+    <div class="content-wrapper">
+      <div id="TreeGrid">
+      </div>
+    </div>
+  </div>
+  <script src="bundle.js"></script>
+</body>
+
+</html>
