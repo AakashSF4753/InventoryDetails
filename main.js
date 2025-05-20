@@ -152,9 +152,14 @@ let tree = new ej.treegrid.TreeGrid(
         childMapping: 'Children',
         treeColumnIndex: 0,
         detailTemplate: function (data) {
-            var isSegmentOrSection = !data.CurrentStock;
+            var isSegmentOrSection = data.CurrentStock === null || data.CurrentStock === undefined;
             if (isSegmentOrSection) {
-                return '';
+                return `
+                    <div class="newclass"></div>
+                    <style>.e-detailcell:has(.newclass) 
+                        {display: none;}
+                    </style>
+                `;
             }
             return `
                 <div class="detail-container">
@@ -237,7 +242,7 @@ tree.appendTo('#TreeGrid');
 
 tree.actionBegin = (args) => {
     if (args.requestType === 'beginEdit' || args.requestType === 'cellEdit') {
-        const isSegmentOrSection = !args.rowData.CurrentStock;
+        const isSegmentOrSection = args.rowData.CurrentStock === null || args.rowData.CurrentStock === undefined;
         if (isSegmentOrSection) {
             args.cancel = true;
         }
